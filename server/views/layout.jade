@@ -5,8 +5,9 @@ html
     title= title
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='javascripts/jquery-1.12.2.js')
+    script(src='/javascripts/jquery-1.12.2.js')
     script(src='/bootstrap/js/bootstrap.js')
+    script(src='/javascripts/align_footer.js')
   body
     .navbar.navbar-inverse
       .container-fluid
@@ -18,11 +19,32 @@ html
           a.navbar-brand(href='/') Refine Renovations
         #tabs.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
-            each vals,link in navbar_links
-              if vals.active
-                li.active
-                  a(href=vals.destination)= link
-              else
-                li
-                  a(href=vals.destination)= link
+            if navbar_links
+              each vals,link in navbar_links
+                if vals.active
+                  li.active
+                    a(href=vals.destination)= link
+                else
+                  li
+                    a(href=vals.destination)= link
     block content
+    .container-fluid.footer
+      .row
+        .col-sm-4.footer-info
+          p.footer-title Address
+          p.footer-info 10011 167 Street
+          p.footer-info Edmonton, AB
+          p.footer-info.bottom T5P 3W3
+        .col-sm-4.footer-info
+          p.footer-info Contact person: James Belovich
+          p.footer-info Phone: (780) 433-6995
+          p.footer-info Fax: (780) 433-0221
+          p.footer-info.bottom Email: 
+            a#email(href="mailto:refine.renovations@telus.net") refine.renovations@telus.net
+        .col-sm-4.footer-info
+          p.footer-title Hours
+          p.footer-info Monday: 8:00 am to 4:30 pm
+          p.footer-info Tuesday: 8:00 am to 4:30 pm
+          p.footer-info Wednesday: 8:00 am to 4:30 pm
+          p.footer-info Thursday: 8:00 am to 4:30 pm
+          p.footer-info Friday: 8:00 am to 4:30 pm          
