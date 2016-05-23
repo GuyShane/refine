@@ -51,6 +51,10 @@ img.thumb {
     cursor: pointer;
 }
 
+.modal-open {
+    overflow: scroll;
+}
+
 
 /*-------- Footer --------*/
 .footer {
