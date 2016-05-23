@@ -1,3 +1,5 @@
+const fs=require('fs');
+
 var navbar={
     'Home': {
 	destination: '/',
@@ -49,9 +51,17 @@ module.exports.home_page=function(req,res){
 
 module.exports.gallery=function(req,res){
     set_active_link('Gallery');
-    res.render('gallery',{
-	title: 'Gallery',
-	navbar_links: navbar
+    fs.readdir('public/images/gallery/thumbs',(err,files)=>{
+	const thumbs=[];
+	for (f of files){
+	    f='images/gallery/thumbs/'+f;
+	    thumbs.push(f);
+	}
+	console.log(thumbs);
+	res.render('gallery',{
+	    navbar_links: navbar,
+	    thumbs: thumbs
+	});
     });
 }
 

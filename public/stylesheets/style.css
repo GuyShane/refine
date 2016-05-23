@@ -1,3 +1,4 @@
+/*-------- General --------*/
 body {
     position: relative;
     margin: 0;
@@ -12,6 +13,7 @@ a {
   color: #00B7FF;
 }
 
+/*-------- Home --------*/
 img#logo {
     display: block;
     max-width: 100%;
@@ -36,6 +38,21 @@ p.about {
     padding-bottom: 50px;
 }
 
+/*-------- Gallery --------*/
+.img-centered {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+img.thumb {
+    border: 3px solid #2c2c2c;
+    border-radius: 2px;
+    box-shadow: 3px 3px 8px #0c0c0c;
+    cursor: pointer;
+}
+
+
+/*-------- Footer --------*/
 .footer {
     position: absolute;
     bottom: 0;

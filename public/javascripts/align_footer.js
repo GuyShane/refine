@@ -6,6 +6,6 @@ $(document).ready(()=>{
 });
 
 function align(){
-    const p=parseInt($('.footer').css('height'))+50;
-    $('.content').css('padding-bottom',p);
+    const pad=parseInt($('.footer').css('height'))+100;
+    $('.content').css('padding-bottom',pad);
 }

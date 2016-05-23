@@ -2,3 +2,8 @@ extends layout
 
 block content
   .content
+    .container-fluid
+      .row
+        each src in thumbs
+          .col-xs-6.col-sm-4.col-md-3.col-lg-2.img-centered
+            img.thumb(src=src)
