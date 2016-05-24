@@ -51,6 +51,28 @@ img.thumb {
     cursor: pointer;
 }
 
+#prev-img {
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: margin-left 0.3s;
+}
+
+#prev-img:hover {
+    margin-left: 16px;
+}
+
+#next-img {
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: margin-right 0.3s;
+}
+
+#next-img:hover {
+    margin-right: 16px;
+}
+
 .modal-body {
     text-align: center;
 }

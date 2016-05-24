@@ -57,7 +57,6 @@ module.exports.gallery=function(req,res){
 	    f='images/gallery/thumbs/'+f;
 	    thumbs.push(f);
 	}
-	console.log(thumbs);
 	res.render('gallery',{
 	    navbar_links: navbar,
 	    thumbs: thumbs

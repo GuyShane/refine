@@ -6,7 +6,7 @@ block content
       .row
         each src in thumbs
           .col-xs-6.col-sm-4.col-md-3.col-lg-2.img-centered
-            img.thumb(src=src, data-toggle='modal', data-target='#image-modal')
+            img.thumb(src=src, height='126', width='126', data-toggle='modal', data-target='#image-modal')
   #image-modal.modal.fade
     .modal-dialog
       .modal-content
@@ -16,4 +16,5 @@ block content
         .modal-body
           img#modal-image
         .modal-footer
-          button.btn.btn-default(type='button', data-dismiss='modal') Close
+          img#prev-img(src='images/arrow-left.png')
+          img#next-img(src='images/arrow-right.png')
