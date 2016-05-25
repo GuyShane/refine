@@ -49,5 +49,18 @@ $(document).ready(()=>{
 	    $('#modal-image').attr('src',imgs[i]);
 	    $('#modal-image').fadeTo(160,1);
 	});
+	load_imgs(i);
+    }
+
+    function load_imgs(i){
+	i_p=norm_idx(i-1);
+	i_n=norm_idx(i+1);
+	$('#load-prev').attr('src',imgs[i_p]);
+	$('#load-next').attr('src',imgs[i_n]);
+    }
+
+    function norm_idx(i){
+	if (i<0){return imgs.length-1;}
+	return i%imgs.length;
     }
 });

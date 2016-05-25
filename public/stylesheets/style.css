@@ -73,6 +73,10 @@ img.thumb {
     margin-right: 16px;
 }
 
+.hidden-img {
+    display: none;
+}
+
 .modal-body {
     text-align: center;
 }
