@@ -11,6 +11,7 @@ $(document).ready(()=>{
     $('.thumb').on('click',function(){
 	let s=$(this).attr('src');
 	idx=$('.thumb').index($(this));
+	load_imgs(idx);
 	s=s.split('/');
 	s='images/gallery/pictures/'+s[s.length-1].replace('_thumb','');
 	$('#modal-image').attr('src',s);
