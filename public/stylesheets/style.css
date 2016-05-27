@@ -95,6 +95,11 @@ label {
     color: #e6e6e6;
 }
 
+.required::before {
+    content: '*';
+    color: red;
+}
+
 /*-------- Footer --------*/
 .footer {
     position: absolute;

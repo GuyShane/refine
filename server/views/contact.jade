@@ -5,11 +5,11 @@ block content
     form#contact-form
       .row
         .col-xs-12.col-md-1
-          label(for='contact-name') Name:
+          label.required(for='contact-name') Name:
         .col-xs-12.col-md-5.contact-input
           input#contact-name.form-control(type='text', placeholder='Name')
         .col-xs-12.col-md-1
-          label(for='contact-email') Email:
+          label.required(for='contact-email') Email:
         .col-xs-12.col-md-5.contact-input
           input#contact-email.form-control(type='email', placeholder='Email')
       .row
