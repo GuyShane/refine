@@ -86,6 +86,15 @@ img.thumb {
     margin: 20px 25px;
 }
 
+.contact-input {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 140%;
+    color: #e6e6e6;
+}
+
 /*-------- Footer --------*/
 .footer {
     position: absolute;
