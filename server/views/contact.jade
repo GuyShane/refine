@@ -2,6 +2,7 @@ extends layout
 
 block content
   .content
+    h1.page-heading Get in touch
     form#contact-form
       .row
         .col-xs-12.col-md-1
@@ -46,5 +47,5 @@ block content
           textarea#contact-message.form-control(placeholder='Type your message here...', rows='5')
       .row
         .col-xs-12
-          p.required Required
+          p#required-note.required Required
       input.btn.btn-ghost.btn-lg(type='submit', value='Send')
