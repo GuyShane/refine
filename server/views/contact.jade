@@ -3,7 +3,7 @@ extends layout
 block content
   .content
     h1.page-heading Get in touch
-    form#contact-form
+    form#contact-form(method='post')
       .row
         .col-xs-12.col-md-1
           label.required(for='contact-name') Name:

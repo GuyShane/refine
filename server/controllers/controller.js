@@ -80,3 +80,8 @@ module.exports.contact=function(req,res){
 	navbar_links: navbar
     });
 }
+
+
+module.exports.send_email=function(req,res){
+    console.log(req.body);
+}
