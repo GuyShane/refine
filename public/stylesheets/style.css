@@ -100,6 +100,23 @@ label {
     color: red;
 }
 
+#contact-message {
+    resize: vertical;
+}
+
+.btn-ghost {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 8px 20px;
+    background: rgba(0,0,0,0);
+    transition: background 0.3s;
+}
+
+.btn-ghost:hover {
+    color: #fff;
+    background: rgba(90,229,232,0.5);
+}
+
 /*-------- Footer --------*/
 .footer {
     position: absolute;

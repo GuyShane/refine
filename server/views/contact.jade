@@ -13,21 +13,38 @@ block content
         .col-xs-12.col-md-5.contact-input
           input#contact-email.form-control(type='email', placeholder='Email')
       .row
-        .col-xs-12.col-md-6.contact-input
-          input.form-control(type='tel', placeholder='Phone')
-        .col-xs-12.col-md-6.contact-input
-          input.form-control(type='tel', placeholder='Fax')
+        .col-xs-12.col-md-1
+          label(for='contact-phone') Phone:
+        .col-xs-12.col-md-5.contact-input
+          input#contact-phone.form-control(type='tel', placeholder='Phone')
+        .col-xs-12.col-md-1
+          label(for='contact-fax') Fax:          
+        .col-xs-12.col-md-5.contact-input
+          input#contact-fax.form-control(type='tel', placeholder='Fax')
       .row
-        .col-xs-12.col-md-6.contact-input
-          input.form-control(type='text', placeholder='Address')
-        .col-xs-12.col-md-6.contact-input
-          input.form-control(type='text', placeholder='Postal code')
+        .col-xs-12.col-md-1
+          label(for='contact-address') Address:      
+        .col-xs-12.col-md-5.contact-input
+          input#contact-address.form-control(type='text', placeholder='Address')
+        .col-xs-12.col-md-1
+          label(for='contact-postal') Postal:
+        .col-xs-12.col-md-5.contact-input
+          input#contact-postal.form-control(type='text', placeholder='Postal code')
       .row
-        .col-xs-12.col-md-6.contact-input
-          input.form-control(type='text', placeholder='City')
-        .col-xs-12.col-md-6.contact-input
-          input.form-control(type='text', placeholder='Province')
+        .col-xs-12.col-md-1
+          label(for='contact-city') City:      
+        .col-xs-12.col-md-5.contact-input
+          input#contact-city.form-control(type='text', placeholder='City')
+        .col-xs-12.col-md-1
+          label(for='contact-province') Province:          
+        .col-xs-12.col-md-5.contact-input
+          input#contact-province.form-control(type='text', placeholder='Province')
       .row
+        .col-xs-12
+          label.required(for='contact-message') Message:
         .col-xs-12.contact-input
-          textarea.form-control(placeholder='Message', rows='5')
-      button.btn.btn-primary.btn-lg(type='submit') Send
+          textarea#contact-message.form-control(placeholder='Type your message here...', rows='5')
+      .row
+        .col-xs-12
+          p.required Required
+      input.btn.btn-ghost.btn-lg(type='submit', value='Send')
