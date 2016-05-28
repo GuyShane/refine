@@ -58,6 +58,7 @@ module.exports.gallery=function(req,res){
 	    thumbs.push(f);
 	}
 	res.render('gallery',{
+	    title: 'Refine Renovations | Gallery',
 	    navbar_links: navbar,
 	    thumbs: thumbs
 	});
@@ -67,7 +68,7 @@ module.exports.gallery=function(req,res){
 module.exports.testimonials=function(req,res){
     set_active_link('Testimonials');
     res.render('testimonials',{
-	title: 'Testimonial',
+	title: 'Refine Renovations | Testimonials',
 	navbar_links: navbar
     });
 }
@@ -75,7 +76,7 @@ module.exports.testimonials=function(req,res){
 module.exports.contact=function(req,res){
     set_active_link('Contact');
     res.render('contact',{
-	title: 'Contact',
+	title: 'Refine Renovations | Contact',
 	navbar_links: navbar
     });
 }

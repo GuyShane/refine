@@ -17,21 +17,12 @@ $(document).ready(()=>{
 	$('#modal-image').attr('src',s);
     });
 
-    $(document).on('keydown',function(event){
-	if (!$('#modal-image').is(':hidden')){
-	    if (event.which==37){$('#prev-img').mouseenter();}
-	    else if (event.which==39){$('#next-img').mouseenter();}
-	}
-    });
-
     $(document).on('keyup',function(event){
 	if (!$('#modal-image').is(':hidden')){
 	    if (event.which==37){
-		$('#prev-img').mouseleave();
 		prev_img();
 	    }
 	    else if(event.which==39){
-		$('#next-img').mouseleave();
 		next_img();
 	    }
 	}
