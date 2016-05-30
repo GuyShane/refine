@@ -6,12 +6,12 @@ block content
     #contact-page
       if status
         .row
-          .col-xs-5.col-xs-offset-3
+          .col-xs-12.col-sm-5.col-sm-offset-3
             .alert.alert-dismissable(class='alert-#{status}', role='alert')
               button.close(type='button', data-dismiss='alert')
                 span &times;
               b= status_message
-      form(method='post')
+      form#contact-form(method='post')
         .row
           .col-xs-12.col-md-1
             label.required(for='contact-name') Name:
@@ -55,7 +55,7 @@ block content
             textarea#contact-message.form-control(placeholder='Type your message here...', rows='5')
         .row
           .col-xs-12
-            .g-recaptcha(data-sitekey='6LcMOyETAAAAAP4H2RHnO-UNpY2aWWZR1Owkz44n')          
+            .g-recaptcha(data-sitekey='6LcMOyETAAAAAP4H2RHnO-UNpY2aWWZR1Owkz44n', data-callback='captcha_submit')
         .row
           .col-xs-12
             p#required-note.required Required
