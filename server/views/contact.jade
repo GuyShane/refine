@@ -3,52 +3,60 @@ extends layout
 block content
   .content
     h1.page-heading Get in touch
-    form#contact-form(method='post')
-      .row
-        .col-xs-12.col-md-1
-          label.required(for='contact-name') Name:
-        .col-xs-12.col-md-5.contact-input
-          input#contact-name.form-control(type='text', placeholder='Name')
-        .col-xs-12.col-md-1
-          label.required(for='contact-email') Email:
-        .col-xs-12.col-md-5.contact-input
-          input#contact-email.form-control(type='email', placeholder='Email')
-      .row
-        .col-xs-12.col-md-1
-          label(for='contact-phone') Phone:
-        .col-xs-12.col-md-5.contact-input
-          input#contact-phone.form-control(type='tel', placeholder='Phone')
-        .col-xs-12.col-md-1
-          label(for='contact-fax') Fax:          
-        .col-xs-12.col-md-5.contact-input
-          input#contact-fax.form-control(type='tel', placeholder='Fax')
-      .row
-        .col-xs-12.col-md-1
-          label(for='contact-address') Address:      
-        .col-xs-12.col-md-5.contact-input
-          input#contact-address.form-control(type='text', placeholder='Address')
-        .col-xs-12.col-md-1
-          label(for='contact-postal') Postal:
-        .col-xs-12.col-md-5.contact-input
-          input#contact-postal.form-control(type='text', placeholder='Postal code')
-      .row
-        .col-xs-12.col-md-1
-          label(for='contact-city') City:      
-        .col-xs-12.col-md-5.contact-input
-          input#contact-city.form-control(type='text', placeholder='City')
-        .col-xs-12.col-md-1
-          label(for='contact-province') Province:          
-        .col-xs-12.col-md-5.contact-input
-          input#contact-province.form-control(type='text', placeholder='Province')
-      .row
-        .col-xs-12
-          label.required(for='contact-message') Message:
-        .col-xs-12.contact-input
-          textarea#contact-message.form-control(placeholder='Type your message here...', rows='5')
-      .row
-        .col-xs-12
-          .g-recaptcha(data-sitekey='6LcMOyETAAAAAP4H2RHnO-UNpY2aWWZR1Owkz44n')          
-      .row
-        .col-xs-12
-          p#required-note.required Required
-      input.btn.btn-ghost.btn-lg(type='submit', value='Send')
+    #contact-page
+      if status
+        .row
+          .col-xs-5.col-xs-offset-3
+            .alert.alert-dismissable(class='alert-#{status}', role='alert')
+              button.close(type='button', data-dismiss='alert')
+                span &times;
+              b= status_message
+      form(method='post')
+        .row
+          .col-xs-12.col-md-1
+            label.required(for='contact-name') Name:
+          .col-xs-12.col-md-5.contact-input
+            input#contact-name.form-control(type='text', placeholder='Name')
+          .col-xs-12.col-md-1
+            label.required(for='contact-email') Email:
+          .col-xs-12.col-md-5.contact-input
+            input#contact-email.form-control(type='email', placeholder='Email')
+        .row
+          .col-xs-12.col-md-1
+            label(for='contact-phone') Phone:
+          .col-xs-12.col-md-5.contact-input
+            input#contact-phone.form-control(type='tel', placeholder='Phone')
+          .col-xs-12.col-md-1
+            label(for='contact-fax') Fax:          
+          .col-xs-12.col-md-5.contact-input
+            input#contact-fax.form-control(type='tel', placeholder='Fax')
+        .row
+          .col-xs-12.col-md-1
+            label(for='contact-address') Address:      
+          .col-xs-12.col-md-5.contact-input
+            input#contact-address.form-control(type='text', placeholder='Address')
+          .col-xs-12.col-md-1
+            label(for='contact-postal') Postal:
+          .col-xs-12.col-md-5.contact-input
+            input#contact-postal.form-control(type='text', placeholder='Postal code')
+        .row
+          .col-xs-12.col-md-1
+            label(for='contact-city') City:      
+          .col-xs-12.col-md-5.contact-input
+            input#contact-city.form-control(type='text', placeholder='City')
+          .col-xs-12.col-md-1
+            label(for='contact-province') Province:          
+          .col-xs-12.col-md-5.contact-input
+            input#contact-province.form-control(type='text', placeholder='Province')
+        .row
+          .col-xs-12
+            label.required(for='contact-message') Message:
+          .col-xs-12.contact-input
+            textarea#contact-message.form-control(placeholder='Type your message here...', rows='5')
+        .row
+          .col-xs-12
+            .g-recaptcha(data-sitekey='6LcMOyETAAAAAP4H2RHnO-UNpY2aWWZR1Owkz44n')          
+        .row
+          .col-xs-12
+            p#required-note.required Required
+        input.btn.btn-ghost.btn-lg(type='submit', value='Send')
