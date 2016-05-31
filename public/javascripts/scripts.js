@@ -91,6 +91,10 @@ $(document).ready(()=>{
 	    if (!validate()){return false;}
 	});
 
+	$('#contact-name, #contact-email, #contact-message').on('input',function(){
+	    $(this).removeClass('input-error');
+	});
+
 	function validate(){
 	    let valid=true;
 	    valid|=check_input('#contact-name');
@@ -119,4 +123,5 @@ $(document).ready(()=>{
 let captcha=false;
 function captcha_submit(){
     captcha=true;
+    $('#captcha').find('iframe').removeClass('input-error');
 }
