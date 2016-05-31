@@ -88,8 +88,32 @@ $(document).ready(()=>{
     //Contact
     (function(){
 	$('#contact-form').on('submit',function(){
-	    if (!captcha){return false;}
+	    if (!validate()){return false;}
 	});
+
+	function validate(){
+	    let valid=true;
+	    valid|=check_input('#contact-name');
+	    valid|=check_input('#contact-email');
+	    valid|=check_input('#contact-message');
+	    if (!captcha){
+		$('#captcha').find('iframe').addClass('input-error');
+		valid=false;
+	    }
+	    return valid;
+	}
+
+	function check_input(id){
+	    let valid=true;
+	    if ($(id).val()===''){
+		$(id).addClass('input-error');
+		valid=false;
+	    }
+	    else {
+		$(id).removeClass('input-error');
+	    }
+	    return valid;
+	}
     })();
 });
 let captcha=false;

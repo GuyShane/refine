@@ -101,6 +101,11 @@ label {
     color: #e6e6e6;
 }
 
+.input-error {
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
 .required::before {
     content: '*';
     color: red;
