@@ -89,10 +89,11 @@ module.exports.contact=function(req,res){
 module.exports.send_email=function(req,res){
     console.log(req.body);
     set_active_link('Contact');
-    res.render('contact',{
+    res.redirect('/contact');
+    /*res.render('contact',{
 	title: 'Refine Renovations | Contact',
 	navbar_links: navbar,
 	status: 'success',
 	status_message: 'Email sent!'
-    });
+    });*/
 }
