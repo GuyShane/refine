@@ -10,8 +10,13 @@ block content
             .alert.alert-dismissable(class='alert-#{status}', role='alert')
               button.close(type='button', data-dismiss='alert')
                 span &times;
-              b Success!
-              span Your email was sent.
+              case status
+                when 'success'
+                  b Success!
+                  span &nbsp;Your email was sent.
+                when 'danger'
+                  b Oops!
+                  span &nbsp;Something went wrong.
       form#contact-form(method='post')
         .row
           .col-xs-12.col-md-1

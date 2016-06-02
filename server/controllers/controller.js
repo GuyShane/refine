@@ -1,4 +1,9 @@
 const fs=require('fs');
+const mailgun=require('mailgun-js')({
+    apiKey: process.env.MAILGUN_API_KEY,
+    domain: process.env.MAILGUN_DOMAIN
+});
+
 const send_response=function(res,status,content){
     res.status(status);
     res.json(content);
@@ -92,8 +97,24 @@ module.exports.contact=function(req,res){
 
 
 module.exports.send_email=function(req,res){
-    console.log(req.body);
     set_active_link('Contact');
-    req.flash('status','success');
-    res.redirect('/contact');
+    const data={
+	from: req.body.name+' <'+req.body.email+'>',
+	to: 'shanebrass1618@gmail.com',
+	subject: 'email',
+	text: 'Testing mailgun!'
+    };
+    mailgun.messages().send(data,(error,body)=>{
+	let status;
+	if (error){
+	    console.log('email error',error);
+	    status='danger';
+	}
+	else {
+	    console.log('email body',body);
+	    status='success';
+	}
+	req.flash('status',status);
+	res.redirect('/contact');
+    });
 }
