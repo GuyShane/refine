@@ -79,21 +79,21 @@ module.exports.testimonials=function(req,res){
 
 module.exports.contact=function(req,res){
     set_active_link('Contact');
-    res.render('contact',{
+    const page_data={
 	title: 'Refine Renovations | Contact',
 	navbar_links: navbar
-    });
+    };
+    const status=req.flash('status');
+    if (status){
+	page_data.status=status[0];
+    }
+    res.render('contact',page_data);
 }
 
 
 module.exports.send_email=function(req,res){
     console.log(req.body);
     set_active_link('Contact');
+    req.flash('status','success');
     res.redirect('/contact');
-    /*res.render('contact',{
-	title: 'Refine Renovations | Contact',
-	navbar_links: navbar,
-	status: 'success',
-	status_message: 'Email sent!'
-    });*/
 }
