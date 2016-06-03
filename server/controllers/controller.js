@@ -1,4 +1,5 @@
 const fs=require('fs');
+const request=require('request');
 const mailgun=require('mailgun-js')({
     apiKey: process.env.MAILGUN_API_KEY,
     domain: process.env.MAILGUN_DOMAIN
@@ -95,26 +96,50 @@ module.exports.contact=function(req,res){
     res.render('contact',page_data);
 }
 
+function contact_redirect(req,res,status){
+    req.flash('status',status);
+    res.redirect('/contact');
+}
 
 module.exports.send_email=function(req,res){
-    set_active_link('Contact');
-    const data={
-	from: req.body.name+' <'+req.body.email+'>',
-	to: 'shanebrass1618@gmail.com',
-	subject: 'email',
-	text: 'Testing mailgun!'
+    //Make sure the form had everything we need
+    if (!req.body.name || !req.body.email || !req.body.message){
+	contact_redirect(req,res,'warning');
+    }
+
+    //Send recaptcha data to Google
+    const captcha_opts={
+	url: 'https://www.google.com/recaptcha/api/siteverify',
+	method: 'POST',
+	json: {
+	    secret: process.env.RECAPTCHA_SECRET,
+	    response: req.body['g-recaptcha-response'],
+	    remoteip: req.ip
+	}
     };
-    mailgun.messages().send(data,(error,body)=>{
-	let status;
-	if (error){
-	    console.log('email error',error);
-	    status='danger';
+    request(captcha_opts,(error,response,body)=>{
+	if (error){ //Captcha was failed
+	    contact_redirect(req,res,'danger');
 	}
 	else {
-	    console.log('email body',body);
-	    status='success';
+	    //Send email
+	    const data={
+		from: req.body.name+' <'+req.body.email+'>',
+		to: 'shanebrass1618@gmail.com',
+		subject: 'email',
+		text: req.body.message
+	    };
+	    mailgun.messages().send(data,(error,body)=>{
+		let status;
+		if (error){
+		    console.log('email error',error);
+		    status='danger';
+		}
+		else {
+		    status='success';
+		}
+		contact_redirect(req,res,status);
+	    });
 	}
-	req.flash('status',status);
-	res.redirect('/contact');
     });
 }
