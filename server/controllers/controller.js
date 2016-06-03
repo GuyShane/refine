@@ -10,6 +10,11 @@ const send_response=function(res,status,content){
     res.json(content);
 };
 
+const contact_redirect=function(req,res,status){
+    req.flash('status',status);
+    res.redirect('/contact');
+}
+
 var navbar={
     'Home': {
 	destination: '/',
@@ -94,11 +99,6 @@ module.exports.contact=function(req,res){
 	page_data.status=status[0];
     }
     res.render('contact',page_data);
-}
-
-function contact_redirect(req,res,status){
-    req.flash('status',status);
-    res.redirect('/contact');
 }
 
 module.exports.send_email=function(req,res){

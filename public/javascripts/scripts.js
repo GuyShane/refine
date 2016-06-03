@@ -28,6 +28,7 @@ $(document).ready(()=>{
 	$('.thumb').on('click',function(){
 	    let s=$(this).attr('src');
 	    idx=$('.thumb').index($(this));
+	    img_link(idx);
 	    load_imgs(idx);
 	    s=s.split('/');
 	    s='images/gallery/pictures/'+s[s.length-1].replace('_thumb','');
@@ -69,14 +70,20 @@ $(document).ready(()=>{
 		$('#modal-image').attr('src',imgs[i]);
 		$('#modal-image').fadeTo(160,1);
 	    });
+	    img_link(i);
 	    load_imgs(i);
 	}
 
 	function load_imgs(i){
-	    i_p=norm_idx(i-1);
-	    i_n=norm_idx(i+1);
+	    const i_p=norm_idx(i-1);
+	    const i_n=norm_idx(i+1);
 	    $('#load-prev').attr('src',imgs[i_p]);
 	    $('#load-next').attr('src',imgs[i_n]);
+	}
+
+	function img_link(i){
+	    console.log('setting link to '+imgs[i]);
+	    $('#a-new-tab').attr('href',imgs[i]);
 	}
 
 	function norm_idx(i){

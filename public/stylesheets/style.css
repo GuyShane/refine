@@ -58,25 +58,37 @@ img.thumb {
 }
 
 #prev-img {
-    float: left;
-    margin-left: 20px;
+    position: absolute;
+    left: 20px;
     cursor: pointer;
-    transition: margin-left 0.3s;
+    transition: left 0.3s;
 }
 
 #prev-img:hover {
-    margin-left: 16px;
+    left: 16px;
 }
 
 #next-img {
-    float: right;
-    margin-right: 20px;
+    position: absolute;
+    right: 20px;
     cursor: pointer;
-    transition: margin-right 0.3s;
+    transition: right 0.3s;
 }
 
 #next-img:hover {
-    margin-right: 16px;
+    right: 16px;
+}
+
+#img-new-tab {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+#img-new-tab:hover {
+    opacity: 1;
 }
 
 .hidden-img {
