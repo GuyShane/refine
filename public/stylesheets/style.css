@@ -95,10 +95,18 @@ img.thumb {
     display: none;
 }
 
+.modal-dialog {
+    display: inline-block;
+    width: auto;
+    max-width: 80%;
+    overflow: hidden;
+    margin: 30px 50%;
+    transform: translate(-50%,0) !important;
+}
+
 .modal-body {
     text-align: center;
 }
-
 /*-------- Contact --------*/
 #contact-page {
     margin: 20px 35px;
